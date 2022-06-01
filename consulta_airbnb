@@ -1,0 +1,24 @@
+import requests
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from time import sleep
+options = Options()
+#options.add_argument('--headless')
+options.add_argument('window-size=400,800')
+
+navegador = webdriver.Chrome(options=options)
+navegador.get('https://www.airbnb.com')
+sleep(5)
+
+input_click = navegador.find_element_by_xpath('//*[@id="site-content"]/div[1]/div/div/div/div/div/div[1]/div/div/div/div[2]/div/button').click()
+#sleep(10)
+input_place = navegador.find_element_by_xpath('/html/body/div[11]/section/div/div/div[2]/div/div/div/div/div[3]/div/div[2]/div/div/div/div[1]/div/div[2]/form').click()
+sleep(5)
+input_place.send_keys('Recife')
+
+
+
+#html_site = BeautifulSoup(navegador.page_source, 'html.parser')
+#print(html_site.prettify())
+# response = requests.get('https://www.airbnb.com')
